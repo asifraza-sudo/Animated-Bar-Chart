@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffcc33, #ff6699);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .chart-container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chart-bars {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 400px;
+    padding: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+  }
+  
+  .bar {
+    width: 50px;
+    padding: 20px;
+    margin-left: 10px;
+    background: linear-gradient(135deg, #66ccff, #3366ff);
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 1s ease, opacity 1s ease;
+  }
+  
+  .bar::after {
+    content: attr(data-value) '%';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .bar.animate {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
